@@ -1,12 +1,20 @@
-import mariadb
+# import mariadb
 
-yabinomotron = mariadb.connect(
+# yabinomotron = mariadb.connect(
+#   host="localhost",
+#   user="vincent",
+#   password="CuissonLente",
+#   database="Binomotron"
+# )
+
+import mysql.connector
+
+yabinomotron = mysql.connector.connect(
   host="localhost",
   user="vincent",
   password="CuissonLente",
-   database="Binomotron"
+  database="Binomotron"
 )
-
 mycursor = yabinomotron.cursor()
 
 # Create a list of students if it does not already exists
