@@ -3,7 +3,7 @@ import mariadb
 yabinomotron = mariadb.connect(
   host="localhost",
   user="vincent",
-  password="Solus4.0",
+  password="CuissonLente",
    database="Binomotron"
 )
 
