@@ -27,12 +27,12 @@ On veut désormais pouvoir créer des groupes de plus de 2 apprenants (des "n-ô
 
 ## Liste des fichiers
 
-binomotron.py
-binomotron-script-data.py
-"Binomotron MCD".jpg
+binomotron.py  
+binomotron-script-data.py  
+"Binomotron MCD".jpg  
 
 ## Détails techniques
 
-Environnement : Python 3.10.7
-Installation : MariaDB + MariaDB Connector/MySQL Connector
+Environnement : Python 3.10.7  
+Installation : MariaDB + MariaDB Connector/MySQL Connector  
 Développé via VS Code
