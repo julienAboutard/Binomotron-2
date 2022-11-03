@@ -1,6 +1,9 @@
-import mariadb, random, sys, os.path, json
+# import mariadb
+import mysql.connector
+import random, sys, os.path, json
 
-yabinomotron = mariadb.connect(
+yabinomotron = mysql.connector.connect(
+# yabinomotron = mariadb.connect(
 host="localhost",
 user="vincent",
 password="CuissonLente",
