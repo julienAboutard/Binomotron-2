@@ -42,8 +42,18 @@ def binomotron(brief_id) :
     # If it's not empty: 
     else :
         groups_list = []
+
         if group_length >= len(students_list) :
-                groups_list.append([student for student in students_list])
+            groups_list.append([student for student in students_list])
+
+        elif group_length >= len(students_list)/2 :
+            group = []
+            for i in range(group_length) :
+                student = random.choice(students_list)
+                group.append(student)
+                students_list.remove(student)
+            groups_list.append(group)
+            groups_list.append([student for student in students_list])
         else :
             while students_list != []:
             
@@ -52,16 +62,15 @@ def binomotron(brief_id) :
                     groups = random.sample(students_list, k = group_length)
                     groups_list.append(groups) 
                     for g in groups:
-                        students_list.pop(students_list.index(g))
-
+                        students_list.remove(g)
                 # Assign randomly the rest to other groups
                 else :
                     for student in students_list:
-                        group = []
+                        group =[]
                         while len(group) != group_length :
                             group = random.choice(groups_list)
                         group.append(student)
-                        students_list.pop(students_list.index(student))
+                        students_list.remove(student)
 
         # Writing to update groups_list.json
         with open("groups_list.json", 'r') as file :
