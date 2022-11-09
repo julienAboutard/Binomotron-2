@@ -42,24 +42,27 @@ def binomotron(brief_id) :
     # If it's not empty: 
     else :
         groups_list = []
-        
-        while students_list != []:
+        if group_length >= len(students_list) :
+                groups_list.append([student for student in students_list])
+        else :
+            while students_list != []:
+            
+                # Assign to groups of required length
+                if len(students_list) >= group_length :
+                    groups = random.sample(students_list, k = group_length)
+                    groups_list.append(groups) 
+                    for g in groups:
+                        students_list.pop(students_list.index(g))
 
-            # Assign to groups of required length
-            if len(students_list) % group_length == 0 :
-                groups = random.sample(students_list, k = group_length)
-                groups_list.append(groups) 
-                for g in groups:
-                    students_list.remove(g)
+                # Assign randomly the rest to other groups
+                else :
+                    for student in students_list:
+                        group = []
+                        while len(group) != group_length :
+                            group = random.choice(groups_list)
+                        group.append(student)
+                        students_list.pop(students_list.index(student))
 
-            # Assign to a group of length+1 or length-1
-            else :
-                alternative_length = group_length - 1 if group_length > 2 else group_length + 1
-                groups = random.sample(students_list, k = alternative_length)
-                groups_list.append(groups) 
-                for g in groups:
-                    students_list.remove(g)
-                    
         # Writing to update groups_list.json
         with open("groups_list.json", 'r') as file :
             group_dictionnary=json.load(file)
@@ -104,11 +107,23 @@ options = [opt for opt in sys.argv[1:] if opt.startswith("--")]
 arguments = [arg for arg in sys.argv[1:] if not arg.startswith("--")]
 file = sys.argv[0]
 
+if arguments == [] and options ==[] :
+    raise SystemExit(f'Usage: {file} (--list/--create) <id_Brief> OR {file} --help for more help')
+
+# Case where --help is used by the user
+if '--help' in options and (len(options) > 1 or len(arguments) == 0):
+    print("Pour afficher une liste de groupes pour un brief donné utiliser l'option --list suivie du numéro du brief voulu.")
+    print("Pour créer une liste de groupe pour un brief donné utiliser l'option --create suivie du numéro du brief voulu.")
+    sys.exit(1)
+elif '--help' in options and (len(options) > 1 or len(arguments) != 0) :
+    raise SystemExit(f'Usage: {file} (--list/--create) <id_Brief> OR {file} --help for more help')
+
+
 # To call the Binomotron using command lines: python binomotron.py --create(or --list) <id_brief>(a number, type int)
 # We check if id_brief is indeed a numerical argument
 if not arguments[0].isnumeric() :
     print("Veuillez renseigner l'id du brief sous forme de nombre")
-    exit()
+    sys.exit(1)
 
 else :
     
@@ -120,8 +135,10 @@ else :
         liste = get_list(brief_id)
         if type(liste) == list : 
             print_groups(liste)
+            sys.exit(1)
         else : 
             print(liste)
+            sys.exit(1)
     
     # --create is used to create a list of groups for a given brief if the groups do not yet exist
     # If the groups already exist, we print a message + the content of the list    
@@ -131,13 +148,16 @@ else :
             print("Vous avez déjà créé une liste de groupes pour ce brief\n")
             print('Voici la liste : \n')
             print_groups(liste)
+            sys.exit(1)
         else :
             liste = binomotron(brief_id)
             if type(liste) == list : 
                 print_groups(liste)
+                sys.exit(1)
             else : 
                 print(liste)
+                sys.exit(1)
 
     # If no condition is met, print an error message asking the user to use --list or --create with a brief id
     else :
-        raise SystemExit(f'Usage: {file} (--list/--create) <id_Brief>')
+        raise SystemExit(f'Usage: {file} (--list/--create) <id_Brief> OR {file} --help for more help')

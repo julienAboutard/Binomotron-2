@@ -1,8 +1,8 @@
-import mariadb
-#import mysql.connector
+# import mariadb
+import mysql.connector
 
-#yabinomotron = mysql.connector.connect(
-yabinomotron = mariadb.connect(
+yabinomotron = mysql.connector.connect(
+# yabinomotron = mariadb.connect(
   host="localhost",
   user="vincent",
   password="CuissonLente",
@@ -52,7 +52,8 @@ val_briefs = [
 ("YAB - Yet Another Binomotron", "https://simplonline.co/briefs/ee7ef768-a817-49bb-9c80-05a828744007", 2),
 ("YAB Enhanced", "https://simplonline.co/briefs/6e0d6f1d-f54c-482a-9708-35cec05d28e5", 2),
 ("Education Nationale", 'Gateway Error, AGAIN?', 3),
-("Torrent Site", 'This link is illegal', 4)
+("Torrent Site", 'This link is illegal', 6),
+("Site de lecture en ligne", 'This link will change', 14)
 ]
 
 mycursor.executemany(sql_briefs, val_briefs)
