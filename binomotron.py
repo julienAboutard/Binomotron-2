@@ -46,7 +46,7 @@ def binomotron(brief_id) :
         if group_length >= len(students_list) :
             groups_list.append([student for student in students_list])
 
-        elif group_length >= len(students_list)/2 :
+        elif group_length >= len(students_list)/2 and group_length < len(students_list):
             group = []
             for i in range(group_length) :
                 student = random.choice(students_list)
