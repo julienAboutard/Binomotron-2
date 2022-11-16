@@ -3,12 +3,16 @@
         "9": [
             [
                 [
-                    "Marwin",
-                    "Launay"
-                ],
-                [
                     "Dorine",
                     "Paris"
+                ],
+                [
+                    "Nawel",
+                    "Ouarti"
+                ],
+                [
+                    "Marwin",
+                    "Launay"
                 ],
                 [
                     "Alice",
@@ -19,8 +23,22 @@
                     "Aboutard"
                 ],
                 [
+                    "Hayel",
+                    "Bendib"
+                ]
+            ],
+            [
+                [
                     "Audrey",
                     "Costes"
+                ],
+                [
+                    "Christelle",
+                    "Wittmann"
+                ],
+                [
+                    "Djamila",
+                    "Chabane"
                 ],
                 [
                     "Florian",
@@ -31,22 +49,60 @@
                     "Bockaj"
                 ],
                 [
-                    "Djamila",
-                    "Chabane"
+                    "Vincent",
+                    "Boettcher"
+                ],
+                [
+                    "Wahid",
+                    "Ameur"
                 ]
-            ],
+            ]
+        ],
+        "10": [
             [
+                [
+                    "Alice",
+                    "Lafon"
+                ],
+                [
+                    "Audrey",
+                    "Costes"
+                ],
                 [
                     "Christelle",
                     "Wittmann"
+                ],
+                [
+                    "Djamila",
+                    "Chabane"
+                ],
+                [
+                    "Dorine",
+                    "Paris"
+                ],
+                [
+                    "Florian",
+                    "Berthelot"
                 ],
                 [
                     "Hayel",
                     "Bendib"
                 ],
                 [
+                    "Julien",
+                    "Aboutard"
+                ],
+                [
+                    "Marwin",
+                    "Launay"
+                ],
+                [
                     "Nawel",
                     "Ouarti"
+                ],
+                [
+                    "Tomislav",
+                    "Bockaj"
                 ],
                 [
                     "Vincent",
